@@ -2,12 +2,12 @@
 /* global chai, primeGen, cumulativeSum, maxPrimeSum */
 
 describe('Test For Correctness', function () {
-  describe('primeGen', function () {
+  describe('PrimeGen', function () {
     it('primeGen(10) => [2, 3, 5, 7]', function () {
-      chai.expect(primeGen(10)).to.have.members([2, 3, 5, 7]);
+      chai.expect(PrimeGen(10)).to.have.members([2, 3, 5, 7]);
     });
-    it('primeGen(20) => [2, 3, 5, 7, 11, 13, 17, 19]', function () {
-      chai.expect(primeGen(20)).to.have.members([2, 3, 5, 7, 11, 13, 17, 19]);
+    it('PrimeGen(20) => [2, 3, 5, 7, 11, 13, 17, 19]', function () {
+      chai.expect(PrimeGen(20)).to.have.members([2, 3, 5, 7, 11, 13, 17, 19]);
     });
   });
   describe('cumulativeSum', function () {
