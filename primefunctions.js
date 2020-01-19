@@ -9,51 +9,43 @@
 function PrimeGen(n) {
   const primes = [];
   // This loop through the numbers until it reach the n numbers we have
-
   for (let i = 2; i < n; i++) {
-    // eslint-disable-next-line no-shadow
-    let isPrime = false;
+    let Prime = false;
     // this loop will make sure if the numbers we have is primes
     for (let j = 2; j <= i; j++) {
       if (i % j === 0 && j !== i) {
-        isPrime = true;
+        Prime = true;
       }
     }
     // This if will push the numbers to the array when we find them.
-    if (isPrime === false) {
+    if (Prime === false) {
       primes.push(i);
       // console.log(i);
     }
   }
   return primes;
 }
-// eslint-disable-next-line no-useless-concat
-console.log(`${'PrimeGen => ' + '['}${PrimeGen(10)}]`);
+console.log(`PrimeGen => [${PrimeGen(10)}]`);
 // this function will gives a new list of numbers from the list was given and give the cumulative list
 // for the fist list.
 function cumulativeSum(x) {
   const total = [];
   // This loop will go through the list and count the elements we have
   for (let i = 0; i < x.length; i++) {
-    // console.log(i);
     // This will take the number we found and push them to the array
     if (i === 0) total.push(x[i]); else {
-      // console.log(x[i]);
       let sum = 0;
       // This loop will through the elements and sum elements
       for (let n = i; n >= 0; n--) sum += x[n];
-      // console.log(sum);
       total.push(sum);
     }
   }
 
   return total;
 }
-// eslint-disable-next-line no-useless-concat
-console.log(`${'cumulativeSum => ' + '['}${cumulativeSum([1, 2, 3, 4])}]`);
+console.log(`cumulativeSum => [${cumulativeSum([1, 2, 3, 4])}]`);
 // This function goes through the elements of the primes numbers and sum them
-// eslint-disable-next-line camelcase
-function sumoF_Primes(num1) {
+function sumOfPrimes(num1) {
   let sum = 0;
 
   for (let i = 0; i < num1.length; i++) sum += num1[i];
@@ -85,7 +77,7 @@ function maxPrimeSum(n) {
     for (let i = 0; i < j; i++) {
       array = List.slice(i, j);
 
-      temp = sumoF_Primes(array);
+      temp = sumOfPrimes(array);
 
       if (nMax < temp) {
         if (isPrime(temp) !== false) {
@@ -103,8 +95,5 @@ function maxPrimeSum(n) {
 
   return [nMax, lenMax];
 }
-
-// eslint-disable-next-line no-useless-concat
-console.log(`${'maxPrimeSum => ' + '['}${maxPrimeSum(100)}]`);
-// eslint-disable-next-line no-useless-concat
-console.log(`${'maxPrimeSum => ' + '['}${maxPrimeSum(1000)}]`);
+console.log(`maxPrimeSum => [${maxPrimeSum(100)}]`);
+console.log(`maxPrimeSum => [${maxPrimeSum(1000)}]`);

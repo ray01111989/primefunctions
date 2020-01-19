@@ -1,4 +1,3 @@
-/* eslint-disable no-const-assign,no-return-assign,no-multi-assign */
 // Rawad Bader
 // CS320
 // prime functions
@@ -7,8 +6,6 @@ function isPrime(i) {
   for (let x = 3; x < i; x += 2) if (i % x === 0) return false;
   return i > 1;
 }
-
-// eslint-disable-next-line no-unused-vars
 function primeGen(limit) {
   const bool = [];
   const primes = [];
@@ -29,21 +26,19 @@ function primeGen(limit) {
   }
   return (primes);
 }
-
-// eslint-disable-next-line no-unused-vars
-function cumulativeSum(arr) {
+function cumulativeSum(Y) {
   const total = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (i === 0) total.push(arr[i]); else {
+  for (let i = 0; i < Y.length; i++) {
+    if (i === 0) total.push(Y[i]); else {
       let sum = 0;
-      for (let n = i; n >= 0; n--) sum += arr[n];
+      for (let n = i; n >= 0; n--) sum += Y[n];
       total.push(sum);
     }
   }
   return total;
 }
 
-// eslint-disable-next-line no-unused-vars
+console.log(`cumulativeSum => [${cumulativeSum([1, 2, 3, 4])}]`);
 function maxPrimeSum(n) { // this will display the total sum and how many prime number were sumed
   const List = primeGen(n); // calls my primeGen function
   let count = 0;
@@ -56,12 +51,10 @@ function maxPrimeSum(n) { // this will display the total sum and how many prime 
       tmp += List[j];
       if (tmp <= n) {
         minus = j - i;
-        if (!(minus > count && isPrime(tmp) && tmp > sum)) {
-          // eslint-disable-next-line no-continue
-          continue;
+        if ((minus > count && isPrime(tmp) && tmp > sum)) {
+          count = j - i;
+          sum = tmp;
         }
-        count = j - i;
-        sum = tmp;
       } else { // will check if the amount of numbers is bigger than the input and will stop
         break;
       }
@@ -69,3 +62,5 @@ function maxPrimeSum(n) { // this will display the total sum and how many prime 
   }
   return [sum, ++count];
 }
+console.log(`maxPrimeSum => [${maxPrimeSum(100)}]`);
+console.log(`maxPrimeSum => [${maxPrimeSum(1000)}]`);
