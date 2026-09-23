@@ -1,5 +1,5 @@
 
-/* Nmae: Rawad Bader
+/* Name: Rawad Bader
    Class: CS 320
    This code will take a number and find the primes numbers in the number, and it can fund the
    cumulative numbers of the primes we found then it search for the heights number of primes numbers
@@ -10,7 +10,7 @@ function PrimeGen(n) {
   const primes = [];
   // This loop through the numbers until it reach the n numbers we have
   for (let i = 2; i < n; i++) {
-    let Prime = false;
+    let Prime = false; // despite its name, this turns true when a divisor is found, meaning i is NOT prime
     // this loop will make sure if the numbers we have is primes
     for (let j = 2; j <= i; j++) {
       if (i % j === 0 && j !== i) {
@@ -73,6 +73,8 @@ function maxPrimeSum(n) {
 
   let array = [];
 
+  // Try every run of consecutive primes List[i..j-1]. This is simple but slow because each run is added up
+  // from scratch; primefunctions2.js is the fast version.
   for (let j = 0; j < n; j++) {
     for (let i = 0; i < j; i++) {
       array = List.slice(i, j);
